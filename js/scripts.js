@@ -34,11 +34,13 @@ b - bho
 const numberGuess = [];
 const numberUser = [];
 let totalScore = 0;
+const containerGrid = document.getElementById('container-grid');
 
-controlNumberRandom (numberGuess, 1, 10)
+controlNumberRandom (numberGuess, 1, 10, containerGrid);
+
 console.log('numberGuess', numberGuess);
 
-setTimeout(gameUser, 5000);
+//setTimeout(gameUser, 5000);
 function gameUser (){
     for(let i = 0; i < 5; i++){
         const requestUser = parseInt(prompt(`Inserisci il numero ${(i +1)}`))
@@ -63,7 +65,7 @@ function gameUser (){
 function numberRandom (min, max){
     return Math.floor(Math.random () * (max - min + 1) + min);
 }
-function controlNumberRandom (nameArray, min, max){
+function controlNumberRandom (nameArray, min, max, containerGrid){
     for(let i = 1 ; i <= 5; i++){
         if(nameArray.length < max){
             let numberRandomReturn = numberRandom (min, max);
@@ -71,13 +73,19 @@ function controlNumberRandom (nameArray, min, max){
                 numberRandomReturn = numberRandom (min, max);
             }
             nameArray.push(numberRandomReturn);
+            createP (containerGrid, numberRandomReturn);
         }
         
     }
     console.log('console log dentro funzione',nameArray.sort());
 }
 
-
+function createP (containerGrid, numberRandomReturn){
+    const newP = document.createElement('p');
+    newP.innerHTML = numberRandomReturn;
+    containerGrid.append(newP);
+    
+}
 /*
 const seconds = parseInt(prompt('Inserisci il tempo di cottura:'));
 
