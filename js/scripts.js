@@ -15,9 +15,9 @@ Consigli del giorno:
 /*
 - visualizza in pagina 5 numeri casuali                                                         //ok
 
-- fai partine un timing di 30sec
+- fai partine un timing di 30sec                                                                //ok
 
-- dopo 30sec fai scomparire i numeri
+- dopo 30sec fai scomparire i numeri                                                            
 
 - richiedi all'utente i 5 numeri tramite prompt() (5 prompt())                                  //ok
 
@@ -40,22 +40,28 @@ controlNumberRandom (numberGuess, 1, 10, containerGrid);
 
 console.log('numberGuess', numberGuess);
 
-//setTimeout(gameUser, 5000);
+setTimeout(gameUser, 5000);
 function gameUser (){
-    for(let i = 0; i < 5; i++){
-        const requestUser = parseInt(prompt(`Inserisci il numero ${(i +1)}`))
-        numberUser.push(requestUser)
-        if(numberUser[i] == numberGuess[i]){
-            console.log('Bravo numero indovinato')
-            totalScore++;
+    containerGrid.innerHTML ='';
+    const scoreLive = document.getElementById('score-live');
+    setTimeout(() => {
+            
+        for(let i = 0; i < 5; i++){
+            const requestUser = parseInt(prompt(`Inserisci il numero ${(i +1)}`))
+            numberUser.push(requestUser)
+            if(numberUser[i] == numberGuess[i]){
+                console.log('Bravo numero indovinato')
+                totalScore++;
+                scoreLive.innerHTML = `Score: ${totalScore}`;
+            }
+            else{
+                console.log('Numero non indovinato')
+        
+            }
         }
-        else{
-            console.log('Numero non indovinato')
-    
-        }
-    }
-    console.log('numberUser', numberUser);
-    console.log('totalScore', totalScore);
+        console.log('numberUser', numberUser);
+        console.log('totalScore', totalScore);
+        }, 1000);
 
 }
 
@@ -73,11 +79,11 @@ function controlNumberRandom (nameArray, min, max, containerGrid){
                 numberRandomReturn = numberRandom (min, max);
             }
             nameArray.push(numberRandomReturn);
+
             createP (containerGrid, numberRandomReturn);
         }
         
     }
-    console.log('console log dentro funzione',nameArray.sort());
 }
 
 function createP (containerGrid, numberRandomReturn){
