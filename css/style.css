@@ -53,6 +53,11 @@ header .hea-right{
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    transition-duration: 0.5s;
+}
+#submit-start:hover{
+    color: white;
+    box-shadow: 0px 0px 25px 2px rgba(255,165,0,0.5);
 }
 
 

@@ -96,13 +96,13 @@ function gameUser (){
     setTimeout(() => {
             
         for(let i = 0; i < 5; i++){
-           /*
+           
             let requestUser;
             do {
                 requestUser = parseInt(prompt(`Inserisci il numero ${(i +1)}`))
             } while (isNaN(requestUser));
             numberUser.push(requestUser)
-            */
+            
             if(numberUser[i] == numberGuess[i]){
                 console.log('Bravo numero indovinato')
                 totalScore++;
