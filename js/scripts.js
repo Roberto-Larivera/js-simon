@@ -17,7 +17,7 @@ Consigli del giorno:
 
 - fai partine un timing di 30sec                                                                //ok
 
-- dopo 30sec fai scomparire i numeri                                                            
+- dopo 30sec fai scomparire i numeri                                                            //ok      
 
 - richiedi all'utente i 5 numeri tramite prompt() (5 prompt())                                  //ok
 
@@ -61,9 +61,22 @@ function gameUser (){
         }
         console.log('numberUser', numberUser);
         console.log('totalScore', totalScore);
+        
+        const messageScore = (`Hai ottenuto ${totalScore} punti/o`);
+        createP (containerGrid, messageScore);
         }, 1000);
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 //  GENERATORE NUMERI RANDOM PER BOMBA  FUNZIONE COPIATA
