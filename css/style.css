@@ -41,9 +41,17 @@ header .hea-right{
     padding: 5px;
     width: 150px;
     margin: 0 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #efefef;
+    cursor: pointer;
 }
 #submit-start{
-    padding: 5px 20px;
+    padding: 10px 20px;
+    background-color: orange;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
 }
 
 
@@ -55,11 +63,18 @@ header .hea-right{
     height: 50vh;
     /* background-color: aquamarine; */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 20px;
 }
 #container-grid p{
     font-size: 2em;
     font-weight: bold;
+}
+.hea-left h1{
+    margin-left: 20px;
+}
+.foot-left a{
+    text-decoration: none;
+    color: black;
 }
