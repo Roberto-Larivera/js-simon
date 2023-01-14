@@ -13,6 +13,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 footer{
     width: 100%;
@@ -66,7 +67,6 @@ header .hea-right{
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    position: relative;
 }
 #container-grid p{
     font-size: 2em;
@@ -79,8 +79,8 @@ header .hea-right{
     text-decoration: none;
     color: black;
 }
-#container-grid h5{
-    font-size: 1rem;
+h5#time-clock{
+    font-size: 1.2rem;
     position: absolute;
-    top: 0;
+    top: 100px;
 }

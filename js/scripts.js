@@ -31,40 +31,64 @@ b - bho
 
 */
 
-const numberGuess = [];
-const numberUser = [];
+// COSTANTI
+let numberGuess = [];
+let numberUser = [];
 let totalScore = 0;
 const containerGrid = document.getElementById('container-grid');
 const timeClock = document.getElementById('time-clock');
-
-controlNumberRandom (numberGuess, 1, 10, containerGrid);
-
-console.log('numberGuess', numberGuess);
-
-let countdownTime = 5;
-const timeCl = setInterval(() => {
-    
-    if (countdownTime == 0){
-        clearInterval(timeCl);
-    }
-    else{
-        createHAlt (containerGrid, countdownTime);
-        countdownTime--;
-        console.log('countdownTime',countdownTime);
-    }
-
-}, (900));
-
-setTimeout(gameUser, 5000);
+const submitStart = document.getElementById('submit-start');
 
 
 
+// PROGRAMMA ESECUZIONE
+submitStart.addEventListener('click',
+    function (){
+            //RESET
+        // timeClock.innerHTML = '';
+        let countdownTime = 5;
+        containerGrid.innerHTML = '';
+        numberGuess = [];
+        numberUser = []; 
+        
+
+
+        const timeCl = setInterval(() => {
+            createHAlt (containerGrid, countdownTime);
+            
+            if (countdownTime == 0){
+                clearInterval(timeCl);
+                timeClock.innerHTML ='';
+            }
+            else{
+                countdownTime--;
+                //console.log('countdownTime',countdownTime);
+            }
+
+        }, (1000));
+        
+        setTimeout(() =>{
+            controlNumberRandom (numberGuess, 1, 10, containerGrid);
+
+        },1000)
+
+        console.log('numberGuess', numberGuess);
+
+        
+
+        const GameUserTime = setTimeout(()=>{
+            gameUser(timeClock)
+        }, 6000);
+})
 
 
 
 
 
 
+
+
+//FUNZIONI
 
 function gameUser (){
     containerGrid.innerHTML ='';
