@@ -35,25 +35,50 @@ const numberGuess = [];
 const numberUser = [];
 let totalScore = 0;
 const containerGrid = document.getElementById('container-grid');
+const timeClock = document.getElementById('time-clock');
 
 controlNumberRandom (numberGuess, 1, 10, containerGrid);
 
 console.log('numberGuess', numberGuess);
 
+let countdownTime = 5;
+const timeCl = setInterval(() => {
+    
+    if (countdownTime == 0){
+        clearInterval(timeCl);
+    }
+    else{
+        createHAlt (containerGrid, countdownTime);
+        countdownTime--;
+        console.log('countdownTime',countdownTime);
+    }
+
+}, (900));
+
 setTimeout(gameUser, 5000);
+
+
+
+
+
+
+
+
+
+
 function gameUser (){
     containerGrid.innerHTML ='';
     const scoreLive = document.getElementById('score-live');
     setTimeout(() => {
             
         for(let i = 0; i < 5; i++){
+           /*
             let requestUser;
-
             do {
                 requestUser = parseInt(prompt(`Inserisci il numero ${(i +1)}`))
             } while (isNaN(requestUser));
             numberUser.push(requestUser)
-            
+            */
             if(numberUser[i] == numberGuess[i]){
                 console.log('Bravo numero indovinato')
                 totalScore++;
@@ -110,6 +135,18 @@ function createP (containerGrid, numberRandomReturn){
     containerGrid.append(newP);
     
 }
+
+
+function createHAlt (container, number){
+    //container.innerHTML = '';
+    // const newH = document.createElement('h5');
+    // newH.classList.add('new-h');
+    
+    timeClock.innerHTML = (`Ricorda.. ${number} secondi`);
+
+    
+    
+}
 /*
 const seconds = parseInt(prompt('Inserisci il tempo di cottura:'));
 
@@ -146,4 +183,25 @@ function alertTime() {
     alert('La pasta è pronta!');
 
 }
+
+
+
+
+/*
+let contatore = 10;
+
+const clock = setInterval(function () {
+
+    if (contatore == 0) {
+        clearInterval(clock);
+        console.log('Buon anno!');
+    }
+    else {
+        console.log(contatore);
+        contatore--;
+    }
+    
+
+}, 1000);
+
 */
